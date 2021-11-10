@@ -34,24 +34,6 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (input.acceleration(Dimension.Y) < -200) {
-        basic.pause(200)
-        led.unplot(LED_X, y)
-        y += -1
-    } else if (input.acceleration(Dimension.Y) > 200) {
-        basic.pause(200)
-        led.unplot(LED_X, y)
-        y += 1
-    }
-    if (y > 4) {
-        y = 4
-    }
-    if (y < 0) {
-        y = 0
-    }
-    led.plot(LED_X, y)
-})
-basic.forever(function () {
     if (input.acceleration(Dimension.X) < -200) {
         basic.pause(200)
         led.unplot(LED_X, y)
@@ -66,6 +48,24 @@ basic.forever(function () {
     }
     if (LED_X < 0) {
         LED_X = 0
+    }
+    led.plot(LED_X, y)
+})
+basic.forever(function () {
+    if (input.acceleration(Dimension.Y) < -200) {
+        basic.pause(200)
+        led.unplot(LED_X, y)
+        y += -1
+    } else if (input.acceleration(Dimension.Y) > 200) {
+        basic.pause(200)
+        led.unplot(LED_X, y)
+        y += 1
+    }
+    if (y > 4) {
+        y = 4
+    }
+    if (y < 0) {
+        y = 0
     }
     led.plot(LED_X, y)
 })
